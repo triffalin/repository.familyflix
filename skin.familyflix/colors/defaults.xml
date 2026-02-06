@@ -1,0 +1,35 @@
+<!-- FamilyFlix - Netflix-inspired colors -->
+<colors>
+	<!-- Base colors -->
+	<color name="black">ff000000</color>
+	<color name="white">ffffffff</color>
+	<color name="None">00ffffff</color>
+
+	<!-- Netflix Brand Colors -->
+	<color name="netflix_red">FFE50914</color>
+	<color name="netflix_red_dark">FFB20710</color>
+	<color name="netflix_red_light">FFFF1F1F</color>
+
+	<!-- Netflix Background Colors -->
+	<color name="netflix_bg">FF141414</color>
+	<color name="netflix_bg_dark">FF0D0D0D</color>
+	<color name="netflix_bg_light">FF1F1F1F</color>
+	<color name="netflix_card_bg">FF2F2F2F</color>
+
+	<!-- Netflix Text Colors -->
+	<color name="netflix_text_primary">FFFFFFFF</color>
+	<color name="netflix_text_secondary">FFB3B3B3</color>
+	<color name="netflix_text_muted">FF808080</color>
+
+	<!-- Accent Colors -->
+	<color name="accent_gold">FFFFD700</color>
+	<color name="accent_green">FF46D369</color>
+	<color name="accent_blue">FF0080FF</color>
+
+	<!-- UI Elements -->
+	<color name="button_focus">FFE50914</color>
+	<color name="button_unfocus">FF6D6D6E</color>
+	<color name="progress_bar">FFE50914</color>
+	<color name="overlay_dark">CC000000</color>
+	<color name="overlay_light">80000000</color>
+</colors>

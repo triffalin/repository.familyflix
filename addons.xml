@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addons>
+    <!-- FamilyFlix Repository -->
+    <addon id="repository.familyflix" name="FamilyFlix Repository" version="1.0.0" provider-name="triffalin">
+        <requires>
+            <import addon="xbmc.addon" version="12.0.0"/>
+        </requires>
+        <extension point="xbmc.addon.repository" name="FamilyFlix Repository">
+            <dir>
+                <info compressed="false">https://triffalin.github.io/repository.familyflix/addons.xml</info>
+                <checksum>https://triffalin.github.io/repository.familyflix/addons.xml.md5</checksum>
+                <datadir zip="true">https://triffalin.github.io/repository.familyflix</datadir>
+            </dir>
+        </extension>
+        <extension point="xbmc.addon.metadata">
+            <summary lang="en_GB">FamilyFlix Repository</summary>
+            <summary lang="ro_RO">Repository FamilyFlix</summary>
+            <description lang="en_GB">Install FamilyFlix skin and addons from this repository.</description>
+            <description lang="ro_RO">Instalează skinul FamilyFlix și addon-urile din acest repository.</description>
+            <platform>all</platform>
+            <assets>
+                <icon>icon.png</icon>
+                <fanart>fanart.jpg</fanart>
+            </assets>
+        </extension>
+    </addon>
+
+    <!-- FamilyFlix Skin -->
+    <addon id="skin.familyflix" version="1.0.0" name="FamilyFlix" provider-name="Pathfinder">
+        <requires>
+            <import version="5.17.0" addon="xbmc.gui"/>
+            <import addon="script.bingie.helper" version="1.1.2"/>
+            <import addon="script.bingie.toolbox" version="1.0.0"/>
+            <import addon="script.bingie.widgets" version="1.0.1"/>
+            <import addon="script.skinshortcuts" version="2.0.3"/>
+            <import addon="resource.images.studios.coloured" version="1.0.0"/>
+            <import addon="plugin.video.tmdb.bingie.helper" version="1.0.1"/>
+            <import addon="plugin.program.autocompletion" version="2.1.3"/>
+        </requires>
+        <extension debugging="true" defaultthemename="Textures.xbt" effectslowdown="1" point="xbmc.gui.skin">
+            <res aspect="16:9" default="true" folder="1080i" height="1080" width="1920"/>
+        </extension>
+        <extension point="xbmc.addon.metadata">
+            <summary lang="en_GB">FamilyFlix - Your family's streaming hub!</summary>
+            <summary lang="ro_RO">FamilyFlix - Hub-ul de streaming al familiei!</summary>
+            <description lang="en_GB">FamilyFlix - The home of your family's favorite movies and shows!</description>
+            <description lang="ro_RO">FamilyFlix - Casa filmelor și serialelor preferate ale familiei!</description>
+            <platform>all</platform>
+            <license>GPL v2.0</license>
+            <assets>
+                <icon>resources/icon.png</icon>
+                <fanart>resources/fanart.jpg</fanart>
+            </assets>
+        </extension>
+    </addon>
+</addons>
