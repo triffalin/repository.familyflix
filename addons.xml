@@ -1,56 +1,261 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <addons>
-    <!-- FamilyFlix Repository -->
-    <addon id="repository.familyflix" name="FamilyFlix Repository" version="1.0.0" provider-name="triffalin">
-        <requires>
-            <import addon="xbmc.addon" version="12.0.0"/>
-        </requires>
-        <extension point="xbmc.addon.repository" name="FamilyFlix Repository">
-            <dir>
-                <info compressed="false">https://triffalin.github.io/repository.familyflix/addons.xml</info>
-                <checksum>https://triffalin.github.io/repository.familyflix/addons.xml.md5</checksum>
-                <datadir zip="true">https://triffalin.github.io/repository.familyflix</datadir>
-            </dir>
-        </extension>
-        <extension point="xbmc.addon.metadata">
-            <summary lang="en_GB">FamilyFlix Repository</summary>
-            <summary lang="ro_RO">Repository FamilyFlix</summary>
-            <description lang="en_GB">Install FamilyFlix skin and addons from this repository.</description>
-            <description lang="ro_RO">Instalează skinul FamilyFlix și addon-urile din acest repository.</description>
-            <platform>all</platform>
-            <assets>
-                <icon>icon.png</icon>
-                <fanart>fanart.jpg</fanart>
-            </assets>
-        </extension>
-    </addon>
+<!-- FAMILYFLIX REPOSITORY -->
+<addon id="repository.familyflix" name="FamilyFlix Repository" provider-name="triffalin" version="1.0.0">
+	<extension point="xbmc.addon.repository" name="FamilyFlix Repository">
+		<requires>
+			<import addon="xbmc.addon" version="12.0.0"/>
+		</requires>
+		<dir>
+			<info compressed="false">https://triffalin.github.io/repository.familyflix/addons.xml</info>
+			<checksum>https://triffalin.github.io/repository.familyflix/addons.xml.md5</checksum>
+			<datadir zip="true">https://triffalin.github.io/repository.familyflix/</datadir>
+		</dir>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary lang="en">FamilyFlix Repository</summary>
+		<summary lang="ro_RO">Repository FamilyFlix</summary>
+        <description lang="en">Repository for FamilyFlix skin and all required addons.</description>
+        <description lang="ro_RO">Repository pentru skinul FamilyFlix și toate addon-urile necesare.</description>
+        <platform>all</platform>
+        <assets>
+            <icon>icon.png</icon>
+            <fanart>fanart.jpg</fanart>
+        </assets>
+	</extension>
+</addon>
 
-    <!-- FamilyFlix Skin -->
-    <addon id="skin.familyflix" version="1.0.0" name="FamilyFlix" provider-name="Pathfinder">
-        <requires>
-            <import version="5.17.0" addon="xbmc.gui"/>
-            <import addon="script.bingie.helper" version="1.1.2"/>
-            <import addon="script.bingie.toolbox" version="1.0.0"/>
-            <import addon="script.bingie.widgets" version="1.0.1"/>
-            <import addon="script.skinshortcuts" version="2.0.3"/>
-            <import addon="resource.images.studios.coloured" version="1.0.0"/>
-            <import addon="plugin.video.tmdb.bingie.helper" version="1.0.1"/>
-            <import addon="plugin.program.autocompletion" version="2.1.3"/>
-        </requires>
-        <extension debugging="true" defaultthemename="Textures.xbt" effectslowdown="1" point="xbmc.gui.skin">
-            <res aspect="16:9" default="true" folder="1080i" height="1080" width="1920"/>
-        </extension>
-        <extension point="xbmc.addon.metadata">
-            <summary lang="en_GB">FamilyFlix - Your family's streaming hub!</summary>
-            <summary lang="ro_RO">FamilyFlix - Hub-ul de streaming al familiei!</summary>
-            <description lang="en_GB">FamilyFlix - The home of your family's favorite movies and shows!</description>
-            <description lang="ro_RO">FamilyFlix - Casa filmelor și serialelor preferate ale familiei!</description>
-            <platform>all</platform>
-            <license>GPL v2.0</license>
-            <assets>
-                <icon>resources/icon.png</icon>
-                <fanart>resources/fanart.jpg</fanart>
-            </assets>
-        </extension>
-    </addon>
+<!-- FAMILYFLIX SKIN -->
+<addon id="skin.familyflix" version="1.0.0" name="FamilyFlix" provider-name="Pathfinder">
+	<requires>
+		<import version="5.17.0" addon="xbmc.gui"/>
+		<import addon="script.bingie.helper" version="1.1.2"/>
+		<import addon="script.bingie.toolbox" version="1.0.0"/>
+		<import addon="script.bingie.widgets" version="1.0.1"/>
+		<import addon="script.skinshortcuts" version="2.0.3"/>
+		<import addon="resource.images.studios.coloured" version="1.0.0" />
+		<import addon="plugin.video.tmdb.bingie.helper" version="1.0.1" />
+		<import addon="plugin.program.autocompletion" version="2.1.3" />
+	</requires>
+	<extension debugging="true" defaultthemename="Textures.xbt" effectslowdown="1" point="xbmc.gui.skin">
+        <res aspect="16:9" default="true" folder="1080i" height="1080" width="1920" />
+    </extension>
+	<extension point="xbmc.addon.metadata">
+		<summary lang="en_GB">FamilyFlix - Your family's streaming hub!</summary>
+		<summary lang="ro_RO">FamilyFlix - Hub-ul de streaming al familiei!</summary>
+		<description lang="en_GB">FamilyFlix - The home of your family's favorite movies and shows!</description>
+		<description lang="ro_RO">FamilyFlix - Casa filmelor și serialelor preferate ale familiei!</description>
+		<platform>all</platform>
+		<license>GPL v2.0</license>
+		<assets>
+			<icon>resources/icon.png</icon>
+			<fanart>resources/fanart.jpg</fanart>
+		</assets>
+	</extension>
+</addon>
+
+<!-- PLUGINS -->
+<addon id="plugin.video.tmdb.bingie.helper"
+version="1.0.2"
+name="TMDb Bingie Helper"
+provider-name="jurialmunkey,matke">
+<requires>
+  <import addon="xbmc.python" version="3.0.1"/>
+  <import addon="script.module.requests" version="2.9.1"/>
+  <import addon="script.module.pil" version="1.1.7"/>
+  <import addon="script.module.addon.signals" version="0.0.6" />
+  <import addon="script.module.bingie" version="1.0.0" />
+  <import addon="script.module.infotagger" version="0.0.5" />
+  <import addon="script.module.beautifulsoup4" version="4.9.3" />
+  <import addon="script.module.qrcode" version="6.1.0" />
+</requires>
+<extension point="xbmc.python.pluginsource" library="resources/plugin.py">
+  <provides>video</provides>
+</extension>
+<extension point="xbmc.python.script" library="resources/script.py" />
+<extension point="xbmc.service" library="resources/service.py" />
+<extension point="xbmc.python.module" library="resources/modules"/>
+<extension point="xbmc.addon.metadata">
+  <reuselanguageinvoker>false</reuselanguageinvoker>
+  <summary lang="en_GB">TMDb Bingie Helper</summary>
+  <description lang="en_GB">TMDb Bingie Helper provides details about movies, tvshows and actors from TMDb.</description>
+  <license>GPL-3.0-or-later</license>
+  <assets>
+    <icon>icon.png</icon>
+    <fanart>fanart.jpg</fanart>
+  </assets>
+</extension>
+</addon>
+
+<addon id="plugin.program.autocompletion" name="AutoCompletion for virtual keyboard" version="2.1.3" provider-name="Philipp Temminghoff (phil65), sualfred, xulek, finkleandeinhorn">
+    <requires>
+        <import addon="xbmc.python" version="3.0.0" />
+        <import addon="script.module.autocompletion" version="2.0.5"/>
+    </requires>
+    <extension point="xbmc.python.script" library="default.py">
+        <provides>executable</provides>
+    </extension>
+    <extension point="xbmc.python.pluginsource" library="plugin.py" />
+    <extension point="xbmc.addon.metadata">
+        <summary lang="en_GB">AutoCompletion for the virtual keyboard</summary>
+        <description lang="en_GB">AutoCompletion for the virtual keyboard (needs skin support)</description>
+        <platform>all</platform>
+        <license>GPL-2.0-or-later</license>
+        <assets>
+            <icon>resources/icon.png</icon>
+        </assets>
+    </extension>
+</addon>
+
+<!-- HELPER SCRIPTS -->
+<addon id="script.bingie.helper" name="Bingie Helper" version="1.1.2" provider-name="cartman.dos, matke">
+	<requires>
+		<import addon="xbmc.python" version="3.0.0"/>
+		<import addon="script.module.simplejson" version="3.17.0"/>
+	</requires>
+	<extension point="xbmc.python.script" library="default.py" />
+	<extension point="xbmc.addon.metadata">
+		<summary lang="en">Bingie Helper</summary>
+		<description lang="en">Helper for some of Bingie skin features.</description>
+		<platform>all</platform>
+		<license>GPL v3.0</license>
+		<assets>
+			<icon>resources/icon.png</icon>
+			<fanart>resources/fanart.jpg</fanart>
+		</assets>
+	</extension>
+</addon>
+
+<addon id="script.bingie.toolbox" name="Bingie Toolbox" version="1.0.0" provider-name="matke">
+    <requires>
+		<import addon="xbmc.python" version="3.0.0"/>
+        <import addon="xbmc.addon" version="12.0.0"/>
+        <import addon="script.module.simplejson" version="3.3.0"/>
+		<import addon="script.module.simplecache" version="1.0.0"/>
+    </requires>
+    <extension point="xbmc.python.library" library="default.py" />
+    <extension point="xbmc.python.pluginsource" library="plugin.py" />
+    <extension point="xbmc.addon.metadata">
+        <summary lang="en">Bingie Toolbox</summary>
+        <description>Toolbox for Bingie skin.</description>
+		<assets>
+            <icon>icon.png</icon>
+            <fanart>fanart.jpg</fanart>
+        </assets>
+        <platform>all</platform>
+        <license>GPL v2.0</license>
+    </extension>
+</addon>
+
+<addon id="script.bingie.widgets" name="Bingie Widgets" version="1.0.1" provider-name="matke">
+    <requires>
+		<import addon="xbmc.python" version="3.0.0"/>
+        <import addon="xbmc.addon" version="12.0.0"/>
+        <import addon="script.module.simplecache" version="2.0.2"/>
+		<import addon="script.module.requests" version="2.9.1"/>
+        <import addon="script.module.infotagger" version="0.0.4" />
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="plugin.py">
+        <provides>video</provides>
+    </extension>
+    <extension library="service.py" point="xbmc.service" start="login" />
+    <extension point="xbmc.addon.metadata">
+        <summary lang="en">Bingie Widgets</summary>
+        <description>Widgets for Bingie skin.</description>
+		<assets>
+            <icon>icon.png</icon>
+            <fanart>fanart.jpg</fanart>
+        </assets>
+        <platform>all</platform>
+        <license>GPL v2.0</license>
+    </extension>
+</addon>
+
+<addon id="script.skin.helper.skinbackup" name="Skin Helper Service Skin Backup" version="1.0.22" provider-name="marcelveldt and others">
+	<requires>
+	    <import addon="xbmc.python" version="3.0.0"/>
+        <import addon="xbmc.addon" version="12.0.0"/>
+	</requires>
+    <extension point="xbmc.python.script" library="default.py" />
+	<extension library="service.py" point="xbmc.service" start="login" />
+	<extension point="xbmc.addon.metadata">
+		<assets>
+            <icon>icon.png</icon>
+            <fanart>fanart.jpg</fanart>
+        </assets>
+		<summary lang="en">Helper service for Kodi skins</summary>
+        <description>Helper service for Kodi skins</description>
+		<platform>all</platform>
+		<license>GPL v2.0</license>
+	</extension>
+</addon>
+
+<addon id="script.skin.helper.colorpicker" name="Skin Helper Service ColorPicker" version="2.0.3" provider-name="marcelveldt,sualfred and others">
+	<requires>
+		<import addon="xbmc.python" version="3.0.0"/>
+		<import addon="script.module.pil" version="1.1.7"/>
+	</requires>
+	<extension point="xbmc.python.library" library="default.py" />
+	<extension point="xbmc.addon.metadata">
+		<summary lang="en_GB">Colorpicker for Kodi Skins</summary>
+		<description lang="en_GB">Colorpicker for Kodi Skins. Part of Skin Helper Suite</description>
+		<platform>all</platform>
+		<license>GPL-2.0</license>
+		<assets>
+			<icon>resources/icon.png</icon>
+			<fanart>resources/fanart.jpg</fanart>
+		</assets>
+	</extension>
+</addon>
+
+<!-- SCREENSAVER -->
+<addon id="screensaver.bingie" name="Bingie Screensaver" version="1.0.0" provider-name="matke">
+    <requires>
+        <import addon="skin.familyflix" version="1.0.0"/>
+    </requires>
+    <extension point="xbmc.ui.screensaver" library="default.py"/>
+    <extension point="xbmc.python.script" library="script.py"/>
+    <extension point="xbmc.addon.metadata">
+        <summary lang="en">Bingie Screensaver</summary>
+        <description lang="en">Netflix styled screensaver for FamilyFlix skin.</description>
+        <assets>
+            <icon>icon.png</icon>
+            <fanart>fanart.jpg</fanart>
+        </assets>
+    </extension>
+</addon>
+
+<!-- MODULES -->
+<addon id="script.module.bingie" name="bingie common" provider-name="jurialmunkey,matke" version="1.0.0">
+  <requires>
+    <import addon="xbmc.python" version="3.0.1"/>
+    <import addon="script.module.requests" version="2.9.1"/>
+    <import addon="script.module.infotagger" version="0.0.5" />
+  </requires>
+  <extension point="xbmc.python.module" library="resources/modules" />
+  <extension point="xbmc.addon.metadata">
+    <description lang="en_GB">Common code required by TMDb Bingie Helper.</description>
+    <license>GPL-3.0-or-later</license>
+    <assets>
+      <icon>icon.png</icon>
+    </assets>
+  </extension>
+</addon>
+
+<!-- RESOURCES -->
+<addon id="resource.images.studios.coloured" name="Studio Icons - Coloured" version="1.0.0012" provider-name="lynxstrike">
+	<extension point="kodi.resource.images" compile="true" type="studios" />
+	<requires>
+		<import addon="kodi.resource" version="1.0.0"/>
+	</requires>
+	<extension point="xbmc.addon.metadata">
+		<summary lang="en">Coloured Studio Icons</summary>
+		<description lang="en">Coloured Studio Icons</description>
+		<platform>all</platform>
+		<assets>
+			<icon>icon.png</icon>
+			<fanart>fanart.jpg</fanart>
+		</assets>
+	</extension>
+</addon>
 </addons>

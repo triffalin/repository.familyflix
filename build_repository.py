@@ -7,48 +7,71 @@ Generates ZIP files and checksums for Kodi addon repository
 import os
 import zipfile
 import hashlib
-import shutil
+import re
 from pathlib import Path
 
 # Configuration
 REPO_DIR = Path(__file__).parent
-ADDONS = ['repository.familyflix', 'skin.familyflix']
+
+# All addons in the repository
+ADDONS = [
+    'repository.familyflix',
+    'skin.familyflix',
+    'plugin.program.autocompletion',
+    'plugin.video.tmdb.bingie.helper',
+    'resource.images.studios.coloured',
+    'screensaver.bingie',
+    'script.bingie.helper',
+    'script.bingie.toolbox',
+    'script.bingie.widgets',
+    'script.module.bingie',
+    'script.skin.helper.colorpicker',
+    'script.skin.helper.skinbackup'
+]
+
+
+def get_addon_version(addon_dir: Path) -> str:
+    """Extract version from addon.xml"""
+    addon_xml = addon_dir / 'addon.xml'
+    if not addon_xml.exists():
+        return None
+
+    with open(addon_xml, 'r', encoding='utf-8') as f:
+        content = f.read()
+
+    version_match = re.search(r'version="([^"]+)"', content)
+    if version_match:
+        return version_match.group(1)
+    return None
+
 
 def create_zip(addon_name: str) -> str:
     """Create ZIP file for an addon"""
     addon_dir = REPO_DIR / addon_name
 
     if not addon_dir.exists():
-        print(f"Warning: {addon_name} folder not found")
+        print(f"  [SKIP] {addon_name} - folder not found")
         return None
 
-    # Read version from addon.xml
-    addon_xml = addon_dir / 'addon.xml'
-    if not addon_xml.exists():
-        print(f"Warning: addon.xml not found in {addon_name}")
+    version = get_addon_version(addon_dir)
+    if not version:
+        print(f"  [SKIP] {addon_name} - no version found")
         return None
 
-    with open(addon_xml, 'r', encoding='utf-8') as f:
-        content = f.read()
-
-    # Extract version
-    import re
-    version_match = re.search(r'version="([^"]+)"', content)
-    if not version_match:
-        print(f"Warning: Could not find version in {addon_name}/addon.xml")
-        return None
-
-    version = version_match.group(1)
     zip_name = f"{addon_name}-{version}.zip"
     zip_path = addon_dir / zip_name
 
-    print(f"Creating {zip_name}...")
+    # Remove old zip if exists
+    if zip_path.exists():
+        zip_path.unlink()
+
+    print(f"  Creating {zip_name}...")
 
     # Create ZIP
     with zipfile.ZipFile(zip_path, 'w', zipfile.ZIP_DEFLATED) as zf:
         for root, dirs, files in os.walk(addon_dir):
             # Skip .git folder and existing zips
-            dirs[:] = [d for d in dirs if d != '.git']
+            dirs[:] = [d for d in dirs if d != '.git' and d != '__pycache__']
 
             for file in files:
                 if file.endswith('.zip'):
@@ -58,7 +81,6 @@ def create_zip(addon_name: str) -> str:
                 arc_name = addon_name + '/' + str(file_path.relative_to(addon_dir))
                 zf.write(file_path, arc_name)
 
-    print(f"  Created: {zip_path}")
     return str(zip_path)
 
 
@@ -77,34 +99,35 @@ def update_addons_xml_md5():
         md5_hash = generate_md5(addons_xml)
         with open(md5_file, 'w') as f:
             f.write(md5_hash)
-        print(f"Created addons.xml.md5: {md5_hash}")
+        print(f"  addons.xml.md5: {md5_hash}")
 
 
 def main():
-    print("=" * 50)
-    print("FamilyFlix Repository Builder")
-    print("=" * 50)
+    print("=" * 60)
+    print("  FamilyFlix Repository Builder")
+    print("=" * 60)
     print()
+    print("Creating ZIP files...")
 
-    # Create ZIP files for each addon
+    success_count = 0
     for addon in ADDONS:
-        create_zip(addon)
+        result = create_zip(addon)
+        if result:
+            success_count += 1
 
     print()
-
-    # Generate MD5 for addons.xml
+    print(f"Created {success_count}/{len(ADDONS)} ZIP files")
+    print()
+    print("Generating checksums...")
     update_addons_xml_md5()
 
     print()
-    print("=" * 50)
-    print("Build complete!")
+    print("=" * 60)
+    print("  Build complete!")
     print()
-    print("Next steps:")
-    print("1. Commit and push to GitHub")
-    print("2. Enable GitHub Pages (Settings -> Pages -> main branch)")
-    print("3. Your repository URL will be:")
-    print("   https://triffalin.github.io/repository.familyflix/")
-    print("=" * 50)
+    print("  Repository URL:")
+    print("  https://triffalin.github.io/repository.familyflix/")
+    print("=" * 60)
 
 
 if __name__ == '__main__':
