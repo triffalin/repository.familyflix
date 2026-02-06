@@ -31,7 +31,7 @@ ADDONS = [
 
 
 def get_addon_version(addon_dir: Path) -> str:
-    """Extract version from addon.xml"""
+    """Extract version from addon.xml - specifically from the <addon> element"""
     addon_xml = addon_dir / 'addon.xml'
     if not addon_xml.exists():
         return None
@@ -39,7 +39,9 @@ def get_addon_version(addon_dir: Path) -> str:
     with open(addon_xml, 'r', encoding='utf-8') as f:
         content = f.read()
 
-    version_match = re.search(r'version="([^"]+)"', content)
+    # Match version attribute specifically from the <addon> element
+    # This pattern looks for <addon ... version="X.Y.Z" ... >
+    version_match = re.search(r'<addon[^>]+version="([^"]+)"', content)
     if version_match:
         return version_match.group(1)
     return None
