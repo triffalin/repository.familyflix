@@ -1,47 +1,87 @@
 # FamilyFlix Repository
 
-Private Kodi repository for the FamilyFlix skin.
+Repository privat Kodi pentru skinul FamilyFlix - complet independent, conține toate dependențele necesare.
 
-## Installation
+## Instalare în Kodi
 
-### Method 1: Add Repository Source (Recommended)
+### Pasul 1: Adaugă sursa repository-ului
 
-1. Open Kodi
-2. Go to **Settings → File Manager → Add source**
-3. Enter URL: `https://triffalin.github.io/repository.familyflix/`
-4. Name it: `FamilyFlix`
-5. Go to **Settings → Add-ons → Install from zip file**
-6. Select `FamilyFlix` → `repository.familyflix` → Install
-7. Go to **Install from repository → FamilyFlix Repository → Look and feel → Skin**
-8. Install **FamilyFlix**
+1. Deschide Kodi
+2. Mergi la **Settings → File Manager → Add source**
+3. Introdu URL-ul: `https://triffalin.github.io/repository.familyflix/`
+4. Denumește-l: `FamilyFlix`
+5. Click **OK**
 
-### Method 2: Direct ZIP Install
+### Pasul 2: Instalează repository-ul
 
-Download and install directly:
-- [repository.familyflix-1.0.0.zip](repository.familyflix/repository.familyflix-1.0.0.zip)
-- [skin.familyflix-1.0.0.zip](skin.familyflix/skin.familyflix-1.0.0.zip)
+1. Mergi la **Settings → Add-ons → Install from zip file**
+2. Selectează **FamilyFlix**
+3. Selectează **repository.familyflix** → Instalează `repository.familyflix-1.0.0.zip`
 
-## Requirements
+### Pasul 3: Instalează skinul FamilyFlix
 
-This skin requires addons from the Bingie repository:
-- script.bingie.helper
-- script.bingie.toolbox
-- script.bingie.widgets
-- script.skinshortcuts
+1. Mergi la **Settings → Add-ons → Install from repository**
+2. Selectează **FamilyFlix Repository**
+3. Mergi la **Look and feel → Skin**
+4. Instalează **FamilyFlix**
+5. Când întreabă dacă vrei să schimbi skinul, alege **Yes**
 
-Install the Bingie repository first: `https://matke-84.github.io/repository.bingie/`
+## Conținut Repository
 
-## Development
+Acest repository conține toate addon-urile necesare:
 
-To update the repository after making changes:
+| Addon | Descriere |
+|-------|-----------|
+| **skin.familyflix** | Skinul principal Netflix-style |
+| script.bingie.helper | Helper pentru funcționalitățile skinului |
+| script.bingie.toolbox | Toolbox pentru skin |
+| script.bingie.widgets | Widgeturi pentru skin |
+| plugin.video.tmdb.bingie.helper | Integrare TMDb pentru informații filme/seriale |
+| plugin.program.autocompletion | Autocomplete pentru tastatură |
+| script.module.bingie | Modul comun |
+| script.skin.helper.colorpicker | Color picker pentru personalizare |
+| script.skin.helper.skinbackup | Backup setări skin |
+| screensaver.bingie | Screensaver Netflix-style |
+| resource.images.studios.coloured | Iconuri studiourilor |
 
-```bash
-python build_repository.py
-git add .
-git commit -m "Update skin"
-git push
+## Dezvoltare
+
+### Workflow pentru modificări:
+
+1. Modifică fișierele în `skin.familyflix/`
+2. Rulează scriptul de build:
+   ```bash
+   python build_repository.py
+   ```
+3. Commit și push:
+   ```bash
+   git add .
+   git commit -m "Descriere modificări"
+   git push
+   ```
+4. Așteaptă 1-2 minute pentru GitHub Pages să se actualizeze
+5. În Kodi: **Settings → Add-ons → Check for updates**
+
+### Structura skinului:
+
+```
+skin.familyflix/
+├── addon.xml           ← Identitate și dependențe
+├── colors/defaults.xml ← Schema de culori
+├── 1080i/              ← Toate layout-urile XML
+│   ├── Home.xml        ← Ecranul principal
+│   ├── Includes*.xml   ← Componente reutilizabile
+│   └── Dialog*.xml     ← Dialoguri și popupuri
+├── shortcuts/          ← Configurație meniu
+│   └── mainmenu.DATA.xml ← Meniul principal
+├── fonts/              ← Fișiere font
+└── media/Textures.xbt  ← Imagini comprimate
 ```
 
-## Credits
+## Credite
 
-Based on the excellent [Bingie skin](https://github.com/matke-84/skin.bingie) by matke-84.
+Bazat pe excelentul [Bingie skin](https://github.com/matke-84/skin.bingie) de matke-84.
+
+## Licență
+
+GPL v2.0
