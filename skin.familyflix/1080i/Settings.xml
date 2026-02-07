@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- BINGIE -->
+<!-- FamilyFlix - Based on Bingie -->
 <window>
     <defaultcontrol always="true">9000</defaultcontrol>
     <include>DefaultSkinSettings</include>
@@ -9,7 +9,7 @@
         <!--Global Background-->
         <include>GlobalBackground</include>
 		<!-- Now Playing -->
-		<include>NowPlayingBackground</include>		
+		<include>NowPlayingBackground</include>
         <!--Header-->
         <include>Header</include>
         <control type="group">
@@ -23,14 +23,14 @@
                 <texture border="15">diffuse/bgpanel.png</texture>
             <colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
             </control>
-            
+
             <control type="image">
                 <posx>60</posx>
                 <width>560</width>
                 <texture border="15">diffuse/bgpanel.png</texture>
                 <colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
             </control>
-            
+
             <!--Picture	(Fanart)-->
             <control type="image">
                 <posx>90</posx>
@@ -41,7 +41,7 @@
                 <aspectratio>scale</aspectratio>
 				<fadetime>350</fadetime>
             </control>
-            
+
             <!--InfoText-->
             <control type="textbox">
                 <posx>90</posx>
@@ -52,7 +52,7 @@
                 <align>left</align>
                 <label>$INFO[Container(9000).ListItem.Label2]</label>
             </control>
-                               
+
             <!--List 9000-->
             <control type="panel" id="9000">
                 <right>69</right>
@@ -91,7 +91,7 @@
 							<left>15</left>
 							<right>15</right>
 							<bottom>8</bottom>
-							<height>38</height>							
+							<height>38</height>
 							<align>center</align>
 							<aligny>center</aligny>
 							<label>[UPPERCASE]$INFO[ListItem.label][/UPPERCASE]</label>
@@ -143,10 +143,34 @@
                         <thumb>player.png</thumb>
                     </item>
                     <item id="5">
-                        <description>Addons</description>
+                        <description>Add-ons Browser</description>
                         <label>$LOCALIZE[24001]</label>
-                        <label2>$LOCALIZE[31408]</label2>
-                        <onclick>activatewindow(AddonBrowser)</onclick>
+                        <label2>Browse, install, and manage add-ons</label2>
+                        <onclick>ActivateWindow(AddonBrowser)</onclick>
+                        <icon>special://skin/extras/media/backgrounds/settings_addons.jpg</icon>
+                        <thumb>addon.png</thumb>
+                    </item>
+                    <item id="15">
+                        <description>Install from Repository</description>
+                        <label>$LOCALIZE[24045]</label>
+                        <label2>Install add-ons from official Kodi repository</label2>
+                        <onclick>ActivateWindow(AddonBrowser,addons://repos/,return)</onclick>
+                        <icon>special://skin/extras/media/backgrounds/settings_addons.jpg</icon>
+                        <thumb>addon.png</thumb>
+                    </item>
+                    <item id="16">
+                        <description>Install from Zip File</description>
+                        <label>$LOCALIZE[24041]</label>
+                        <label2>Install add-ons from a local zip file</label2>
+                        <onclick>ActivateWindow(AddonBrowser,addons://install/,return)</onclick>
+                        <icon>special://skin/extras/media/backgrounds/settings_addons.jpg</icon>
+                        <thumb>addon.png</thumb>
+                    </item>
+                    <item id="17">
+                        <description>My Add-ons</description>
+                        <label>$LOCALIZE[24044]</label>
+                        <label2>View and manage installed add-ons</label2>
+                        <onclick>ActivateWindow(AddonBrowser,addons://installed/,return)</onclick>
                         <icon>special://skin/extras/media/backgrounds/settings_addons.jpg</icon>
                         <thumb>addon.png</thumb>
                     </item>
@@ -200,8 +224,8 @@
                     </item>
                 </content>
             </control>
-            
-        </control>		
+
+        </control>
 
         <include condition="Skin.HasSetting(DebugGrid) | Skin.HasSetting(DebugInfo)">DebugInfo</include>
     </controls>
