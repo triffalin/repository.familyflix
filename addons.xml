@@ -2,10 +2,10 @@
 <addons>
 <!-- FAMILYFLIX REPOSITORY -->
 <addon id="repository.familyflix" name="FamilyFlix Repository" provider-name="triffalin" version="1.0.0">
+	<requires>
+		<import addon="xbmc.addon" version="12.0.0"/>
+	</requires>
 	<extension point="xbmc.addon.repository" name="FamilyFlix Repository">
-		<requires>
-			<import addon="xbmc.addon" version="12.0.0"/>
-		</requires>
 		<dir>
 			<info compressed="false">https://triffalin.github.io/repository.familyflix/addons.xml</info>
 			<checksum>https://triffalin.github.io/repository.familyflix/addons.xml.md5</checksum>
@@ -15,13 +15,13 @@
 	<extension point="xbmc.addon.metadata">
 		<summary lang="en">FamilyFlix Repository</summary>
 		<summary lang="ro_RO">Repository FamilyFlix</summary>
-        <description lang="en">Repository for FamilyFlix skin and all required addons.</description>
-        <description lang="ro_RO">Repository pentru skinul FamilyFlix și toate addon-urile necesare.</description>
-        <platform>all</platform>
-        <assets>
-            <icon>icon.png</icon>
-            <fanart>fanart.jpg</fanart>
-        </assets>
+		<description lang="en">Repository for FamilyFlix skin and all required addons.</description>
+		<description lang="ro_RO">Repository pentru skinul FamilyFlix și toate addon-urile necesare.</description>
+		<platform>all</platform>
+		<assets>
+			<icon>icon.png</icon>
+			<fanart>fanart.jpg</fanart>
+		</assets>
 	</extension>
 </addon>
 
