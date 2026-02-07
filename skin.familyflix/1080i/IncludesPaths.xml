@@ -477,64 +477,81 @@
         <value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper/?info=random_trending&amp;tmdb_type=both&amp;widget=true&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]</value>
     </variable>
 	
+	<!-- FAMILYFLIX: Widget 0 - Top 10 Today (Trending Day - Movies + TV) -->
 	<variable name="DefWidgetContent">
 		<value condition="Library.HasContent(Movies) | Library.HasContent(TVShows)">plugin://script.bingie.widgets/?action=inprogressnextepisode&amp;mediatype=media&amp;limit=25&amp;reload=$INFO[Window(Home).Property(widgetreload)]</value>
-        <value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper?info=trakt_trending&amp;tmdb_type=movie&amp;widget=true&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]</value>
+        <value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper?info=trending_day&amp;tmdb_type=both&amp;limit=10&amp;widget=true&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]</value>
     </variable>
-	
+
 	<variable name="DefWidgetName">
 		<value condition="Library.HasContent(Movies) | Library.HasContent(TVShows)">[CAPITALIZE]$LOCALIZE[13362][/CAPITALIZE] $VAR[ForCurrentProfileNameLabel]</value>
-        <value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">$LOCALIZE[31337]</value>
+        <value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">Top 10 Today</value>
     </variable>
-	
+
+	<!-- FAMILYFLIX: Widget 1 - Continue Watching (Trakt In Progress - Movies + TV) -->
 	<variable name="DefWidget1Content">
 		<value condition="Library.HasContent(Movies) | Library.HasContent(TVShows)">plugin://script.bingie.widgets/?action=recent&amp;mediatype=media&amp;limit=25&amp;reload=$INFO[Window(Home).Property(widgetreload)]</value>
-        <value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper?info=trakt_trending&amp;tmdb_type=tv&amp;widget=true&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]</value>
+        <value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper?info=trakt_inprogress&amp;tmdb_type=both&amp;limit=10&amp;widget=true&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]</value>
     </variable>
-	
+
 	<variable name="DefWidget1Name">
 		<value condition="Library.HasContent(Movies) | Library.HasContent(TVShows)">[CAPITALIZE]$LOCALIZE[20382][/CAPITALIZE]</value>
-        <value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">$LOCALIZE[31328]</value>
+        <value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">Continue Watching</value>
     </variable>
-	
+
+	<!-- FAMILYFLIX: Widget 2 - Recently Added (Trakt History - Movies + TV) -->
 	<variable name="DefWidget2Content">
 		<value condition="Library.HasContent(Movies) | Library.HasContent(TVShows)">special://skin/extras/widgetplaylists/bingeworthyshows.xsp</value>
-        <value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper?info=trakt_popular&amp;tmdb_type=movie&amp;widget=true&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]</value>
+        <value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper?info=trakt_history&amp;tmdb_type=both&amp;limit=10&amp;widget=true&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]</value>
     </variable>
-	
+
 	<variable name="DefWidget2Name">
 		<value condition="Library.HasContent(Movies) | Library.HasContent(TVShows)">$LOCALIZE[31079]</value>
-        <value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">$LOCALIZE[31326]</value>
+        <value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">Recently Added</value>
     </variable>
-	
+
+	<!-- FAMILYFLIX: Widget 3 - Trending Now (Trakt Trending - Movies + TV) -->
 	<variable name="DefWidget3Content">
 		<value condition="Library.HasContent(Movies) | Library.HasContent(TVShows)">plugin://script.bingie.widgets/?action=forgenre&amp;mediatype=media&amp;limit=25&amp;reload=$INFO[Window(Home).Property(widgetreload)]</value>
-        <value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper?info=trakt_popular&amp;tmdb_type=tv&amp;widget=true&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]</value>
+        <value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper?info=trakt_trending&amp;tmdb_type=both&amp;limit=10&amp;widget=true&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]</value>
     </variable>
-	
+
 	<variable name="DefWidget3Name">
 		<value condition="Library.HasContent(Movies) | Library.HasContent(TVShows)">$LOCALIZE[515]</value>
-        <value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">$LOCALIZE[31319]</value>
+        <value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">Trending Now</value>
     </variable>
-	
+
+	<!-- FAMILYFLIX: Widget 4 - New Releases (Now Playing Movies + Airing Today TV) -->
 	<variable name="DefWidget4Content">
 		<value condition="Library.HasContent(Movies) | Library.HasContent(TVShows)">special://skin/extras/widgetplaylists/criticallyacclaimedmovies.xsp</value>
-		<value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper/?info=trakt_userlist&amp;list_name=IMDB:+Top+Rated+Movies&amp;list_slug=imdb-top-rated-movies&amp;user_slug=justin&amp;plugin_category=IMDB:+Top+Rated+Movies&amp;widget=true&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]</value>
+		<value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper/?info=now_playing&amp;tmdb_type=movie&amp;limit=10&amp;widget=true&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]</value>
     </variable>
-	
+
 	<variable name="DefWidget4Name">
 		<value condition="Library.HasContent(Movies) | Library.HasContent(TVShows)">$LOCALIZE[31532]</value>
-		<value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">$LOCALIZE[31277]</value>
+		<value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">New Releases</value>
     </variable>
-	
+
+	<!-- FAMILYFLIX: Widget 5 - Top Picks for You (Trakt Recommendations - Movies + TV) -->
 	<variable name="DefWidget5Content">
 		<value condition="Library.HasContent(Movies) | Library.HasContent(TVShows)">plugin://script.bingie.widgets/?action=similar&amp;mediatype=media&amp;limit=25&amp;reload=$INFO[Window(Home).Property(widgetreload)]</value>
-		<value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper/?info=trakt_userlist&amp;list_name=IMDB:+Top+Rated+TV+Shows&amp;list_slug=imdb-top-rated-tv-shows&amp;user_slug=justin&amp;plugin_category=IMDB:+Top+Rated+TV+Shows&amp;widget=true&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]</value>
+		<value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper/?info=trakt_recommendations&amp;tmdb_type=both&amp;limit=10&amp;widget=true&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]</value>
 	</variable>
-	
+
 	<variable name="DefWidget5Name">
 		<value condition="Library.HasContent(Movies) | Library.HasContent(TVShows)">$ADDON[script.bingie.widgets 32011]</value>
-		<value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">$LOCALIZE[31443]</value>
+		<value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">Top Picks for You</value>
+    </variable>
+
+	<!-- FAMILYFLIX: Widget 6 - Only on Netflix (Discover with Netflix provider, Romania) -->
+	<variable name="DefWidget6Content">
+		<value condition="Library.HasContent(Movies) | Library.HasContent(TVShows)">plugin://script.bingie.widgets/?action=random&amp;mediatype=media&amp;limit=25&amp;reload=$INFO[Window(Home).Property(widgetreload)]</value>
+		<value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;tmdb_type=both&amp;with_watch_providers=8&amp;watch_region=RO&amp;limit=10&amp;widget=true&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]</value>
+	</variable>
+
+	<variable name="DefWidget6Name">
+		<value condition="Library.HasContent(Movies) | Library.HasContent(TVShows)">$LOCALIZE[31219]</value>
+		<value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">Only on Netflix</value>
     </variable>
 	
 	<variable name="DefMovieHubContent">

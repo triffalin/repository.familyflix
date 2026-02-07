@@ -26,7 +26,7 @@
 </addon>
 
 <!-- FAMILYFLIX SKIN -->
-<addon id="skin.familyflix" version="1.0.0" name="FamilyFlix" provider-name="Pathfinder">
+<addon id="skin.familyflix" version="1.0.1" name="FamilyFlix" provider-name="Pathfinder">
 	<requires>
 		<import version="5.17.0" addon="xbmc.gui"/>
 		<import addon="script.bingie.helper" version="1.1.2"/>

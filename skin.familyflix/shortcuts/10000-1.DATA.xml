@@ -43,5 +43,12 @@
         <thumb />
         <action>$VAR[DefWidget5Content]</action>
     </shortcut>
-    
+	<shortcut>
+        <label>$VAR[DefWidget6Name]</label>
+        <label2 />
+        <icon />
+        <thumb />
+        <action>$VAR[DefWidget6Content]</action>
+    </shortcut>
+
 </shortcuts>
