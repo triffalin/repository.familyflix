@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <addons>
 <!-- FAMILYFLIX REPOSITORY -->
-<addon id="repository.familyflix" name="FamilyFlix Repository" provider-name="triffalin" version="1.0.0">
-	<requires>
-		<import addon="xbmc.addon" version="12.0.0"/>
-	</requires>
+<addon id="repository.familyflix" name="FamilyFlix Repository" provider-name="triffalin" version="1.0.1">
 	<extension point="xbmc.addon.repository" name="FamilyFlix Repository">
-		<dir>
+		<requires>
+			<import addon="xbmc.addon" version="12.0.0"/>
+		</requires>
+		<dir minversion="21.0.0">
 			<info compressed="false">https://triffalin.github.io/repository.familyflix/addons.xml</info>
 			<checksum>https://triffalin.github.io/repository.familyflix/addons.xml.md5</checksum>
 			<datadir zip="true">https://triffalin.github.io/repository.familyflix/</datadir>

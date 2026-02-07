@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="repository.familyflix" name="FamilyFlix Repository" version="1.0.0" provider-name="triffalin">
-    <requires>
-        <import addon="xbmc.addon" version="12.0.0"/>
-    </requires>
-    <extension point="xbmc.addon.repository" name="FamilyFlix Repository">
-        <dir>
-            <info compressed="false">https://triffalin.github.io/repository.familyflix/addons.xml</info>
-            <checksum>https://triffalin.github.io/repository.familyflix/addons.xml.md5</checksum>
-            <datadir zip="true">https://triffalin.github.io/repository.familyflix</datadir>
-        </dir>
-    </extension>
-    <extension point="xbmc.addon.metadata">
-        <summary lang="en_GB">FamilyFlix Repository</summary>
-        <summary lang="ro_RO">Repository FamilyFlix</summary>
-        <description lang="en_GB">Install FamilyFlix skin and addons from this repository.</description>
-        <description lang="ro_RO">Instalează skinul FamilyFlix și addon-urile din acest repository.</description>
-        <platform>all</platform>
-        <assets>
-            <icon>icon.png</icon>
-            <fanart>fanart.jpg</fanart>
-        </assets>
-    </extension>
+<addon id="repository.familyflix" name="FamilyFlix Repository" version="1.0.1" provider-name="triffalin">
+	<extension point="xbmc.addon.repository" name="FamilyFlix Repository">
+		<requires>
+			<import addon="xbmc.addon" version="12.0.0"/>
+		</requires>
+		<dir minversion="21.0.0">
+			<info compressed="false">https://triffalin.github.io/repository.familyflix/addons.xml</info>
+			<checksum>https://triffalin.github.io/repository.familyflix/addons.xml.md5</checksum>
+			<datadir zip="true">https://triffalin.github.io/repository.familyflix/</datadir>
+		</dir>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary lang="en_GB">FamilyFlix Repository</summary>
+		<summary lang="ro_RO">Repository FamilyFlix</summary>
+		<description lang="en_GB">Install FamilyFlix skin and addons from this repository.</description>
+		<description lang="ro_RO">Instalează skinul FamilyFlix și addon-urile din acest repository.</description>
+		<platform>all</platform>
+		<assets>
+			<icon>icon.png</icon>
+			<fanart>fanart.jpg</fanart>
+		</assets>
+	</extension>
 </addon>
