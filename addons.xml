@@ -258,4 +258,45 @@ provider-name="jurialmunkey,matke">
 		</assets>
 	</extension>
 </addon>
+
+<!-- VIDEO ADDON - UMBRELLA -->
+<addon id="plugin.video.umbrella" name="Umbrella" provider-name="Umbrella" version="6.7.52">
+	<requires>
+		<import addon="xbmc.python" version="3.0.0"/>
+		<import addon="script.module.requests"/>
+		<import addon="plugin.video.youtube" optional="true"/>
+	</requires>
+	<extension point="xbmc.python.pluginsource" library="umbrella.py">
+		<provides>video</provides>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary lang="en">Umbrella - All-in-one streaming addon</summary>
+		<description lang="en">Umbrella is an all-in-one video addon for movies and TV shows.</description>
+		<platform>all</platform>
+		<license>GPL-3.0</license>
+		<assets>
+			<icon>icon.png</icon>
+			<fanart>fanart.jpg</fanart>
+		</assets>
+	</extension>
+</addon>
+
+<!-- SUBTITLES ADDON - A4KSUBTITLES -->
+<addon id="service.subtitles.a4ksubtitles" name="a4kSubtitles" version="3.23.1" provider-name="Unknown">
+	<requires>
+		<import addon="script.module.requests"/>
+		<import addon="vfs.libarchive" optional="true"/>
+	</requires>
+	<extension point="xbmc.subtitle.module" library="main.py"/>
+	<extension point="xbmc.service" library="main_service.py"/>
+	<extension point="xbmc.addon.metadata">
+		<summary lang="en">a4kSubtitles - Multi-Source Subtitles Addon</summary>
+		<description lang="en">Multi-source subtitles addon. Supports: OpenSubtitles, BSPlayer, Podnadpisi.NET, SubDL, Addic7ed</description>
+		<platform>all</platform>
+		<license>MIT License</license>
+		<assets>
+			<icon>icon.png</icon>
+		</assets>
+	</extension>
+</addon>
 </addons>
